@@ -70,6 +70,8 @@ exports.getUserProfile = async (req,res)=>{
     }
 }
 
+// get my appointments
+
 exports.getMyAppointments = async(req,res)=>{
     try {
         //retrieve appointments from booking
