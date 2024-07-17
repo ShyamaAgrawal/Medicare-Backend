@@ -4,8 +4,8 @@ const reviewController = require('../Controllers/reviewController.js');
 const { authenticate, restrict } = require('../middlewares/authentication');
 
 
-router.get('/reviews', authenticate, reviewController.getAllReviewss)
-router.post('/doctor/:doctorId/review',authenticate,restrict(['patient']),reviewController.createReview)
+router.get('/reviews', authenticate, reviewController.getAllReviews)
+router.post('/doctors/:doctorId/addReview',authenticate,restrict(['patient']),reviewController.createReview)
 
 
 

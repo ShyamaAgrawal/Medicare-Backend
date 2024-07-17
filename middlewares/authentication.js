@@ -19,7 +19,7 @@ exports.authenticate = async (req, res, next) => {
         req.role = decoded.role 
         next();
     } catch (error) {
-        if (err.name === 'TokenExpiredError') {
+        if (error.name === 'TokenExpiredError') {
             return res.status(401).json({message:"Token is expired"})
         }
         return res.status(401).json({success:false,message:"Invalid Token"})
