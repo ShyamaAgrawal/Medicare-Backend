@@ -42,7 +42,7 @@ const DoctorSchema = new mongoose.Schema({
         enum: ["pending", "approved", "cancelled"],
         default: "pending",
     },
-    appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
+    appointments: [{ type: mongoose.Types.ObjectId, ref: "Booking" }],
 });
 const Doctor = mongoose.model("Doctor", DoctorSchema);
 module.exports = Doctor;

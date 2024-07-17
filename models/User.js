@@ -32,9 +32,10 @@ const UserSchema = new mongoose.Schema({
     bloodType: {
         type: String
     },
-    appointments: [{
+    appointments: [
+        {
         type: mongoose.Types.ObjectId,
-        ref: "Appointment"
+        ref: "Booking"
     }],
 });
 

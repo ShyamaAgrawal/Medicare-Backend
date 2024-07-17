@@ -76,7 +76,8 @@ exports.getDoctorProfile = async (req,res)=>{
         }
         const { password, ...rest } = doctor._doc;
         // console.log(doctor._doc)
-        const appointments = await Booking.find({doctor:doctorId})
+        const appointments = await Booking.find({ doctor: doctorId }).populate('user')
+        // console.log(appointments)
         res.status(200).json({success:true,message:"Getting doctor details",data:{...rest,appointments}})
     } catch (error) {
         res.status(500).json({ success: false, message: "Failed to fetch doctor profile" })

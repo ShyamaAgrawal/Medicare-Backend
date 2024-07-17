@@ -5,6 +5,7 @@ const authRoutes = require('./Routes/authRoutes.js')
 const userRoutes = require('./Routes/userRoutes.js')
 const doctorRoutes = require('./Routes/doctorRoutes.js')
 const reviewRoutes = require('./Routes/reviewRoutes.js')
+const bookingRoutes = require("./Routes/bookingRoutes.js");
 
 
 const bodyParser = require('body-parser');
@@ -39,6 +40,7 @@ app.use(authRoutes)
 app.use(userRoutes)
 app.use(doctorRoutes)
 app.use(reviewRoutes)
+app.use(bookingRoutes)
 
 app.get('/', (req, res) => {
     res.send('home');
