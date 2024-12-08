@@ -8,8 +8,8 @@ exports.getCheckoutSession = async (req, res) => {
     const doctor = await Doctor.findById(req.params.doctorId);
     const user = await User.findById(req.userId);
 
-    //   console.log(doctor, "doctor")
-    //   console.log(user,"user")
+      console.log(doctor, "doctor")
+      console.log(user,"user")
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -47,12 +47,27 @@ exports.getCheckoutSession = async (req, res) => {
       status: "approved",
     });
 
-    doctor.appointments.push(booking);
+
+
+    doctor.appointments.push(booking._id);
     user.appointments.push(booking);
 
+
+    try {
+      await doctor.save();
+      console.log("Doctor updated successfully");
+    } catch (error) {
+      console.error("Error saving doctor:", error);
+    }
+
+    // await doctor.save();
+    // console.log("booking");
     await booking.save();
-    await doctor.save();
     await user.save();
+
+
+
+
     res
       .status(200)
       .json({ success: true, message: "Payment done successfully", session });

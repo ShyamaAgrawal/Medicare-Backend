@@ -25,7 +25,7 @@ const DoctorSchema = new mongoose.Schema({
         type: Array,
     },
 
-    bio: { type: String, maxLength: 50 },
+    bio: { type: String, maxLength: 1000 },
     about: { type: String },
     timeSlots: { type: Array },
     reviews: [{ type: mongoose.Types.ObjectId, ref: "Review" }],
